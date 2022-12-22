@@ -161,6 +161,7 @@ class _RigService {
         const Player = QBCore.Functions.GetPlayerByCitizenId(rig.Owner);
         if (Player && total > 0) {
           Player.Functions.AddMoney('crypto', total);
+          TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, `You earned ${total} from your mining rig`);
           RigLogger.cryptoEarned(rig, total);
         }
       });
